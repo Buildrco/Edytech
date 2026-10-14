@@ -2343,3 +2343,11 @@ html[lang="fr"] .lang-en-only {
 .transition__shape {
   color: #3B82F6;
 }
+
+
+/* Edytech footer repair: align both layers with the current blue brand palette. */
+.footer,
+.footer__top { background-color: #3B82F6; }
+.footer .footer__top-form .form__submit-group .button-alt { --button-alt-color: #111827; --button-alt-color-background: #fff; }
+.footer .button-social { --button-social-color: #111827; --button-social-color-background: #fff; }
+.footer .footer__top-form .form__input { color: #111827; background-color: #fff; }
