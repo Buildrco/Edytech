@@ -3129,7 +3129,7 @@ function initBoxSequence() {
     const filetype = canvas.dataset.filetype || 'webp';
     const startTrigger = wrap.dataset.scrollStart || 'top top';
     const endTrigger = wrap.dataset.scrollEnd || 'bottom top';
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches && !wrap.hasAttribute('data-force-animation');
 
     const isMobile = window.matchMedia('(max-width: 767px)').matches;
     const baseUrl = isMobile ? mobileSrc : desktopSrc;
