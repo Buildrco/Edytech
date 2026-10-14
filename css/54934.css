@@ -324,8 +324,9 @@ Doesn't got used yet
 }
 
 .header__title,
-.header__sub {
-  transition: opacity 0.125s ease-out, translate 0.45s var(--ease-smooth);
+.header__sub,
+.header__menu-toggle {
+  transition: opacity 0.36s ease, translate 0.45s var(--ease-smooth);
 }
 
 .header__nav-list-item .button__bg {
@@ -333,10 +334,20 @@ Doesn't got used yet
   justify-content: center;
 }
 
-[data-scrolling-started="true"] .header__title,
-[data-scrolling-started="true"] .header__sub {
+[data-scrolling-started="true"][data-scroll-direction="down"] .header__title,
+[data-scrolling-started="true"][data-scroll-direction="down"] .header__sub,
+[data-scrolling-started="true"][data-scroll-direction="down"] .header__menu-toggle {
+  opacity: 0;
   translate: 0 calc(var(--header-height) * -1) 0;
   pointer-events: none;
+}
+
+[data-scrolling-started="true"][data-scroll-direction="up"] .header__title,
+[data-scrolling-started="true"][data-scroll-direction="up"] .header__sub,
+[data-scrolling-started="true"][data-scroll-direction="up"] .header__menu-toggle {
+  opacity: 1;
+  translate: 0 0 0;
+  pointer-events: auto;
 }
 
 .button-alt.is--menu-toggle {

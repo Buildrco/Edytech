@@ -4924,28 +4924,9 @@ function initMenu() {
   if (!menuClose || menuToggle.dataset.menuInit === "true") return;
   menuToggle.dataset.menuInit = "true";
 
-  bindActivation(menuToggle);
-  bindActivation(menuClose);
-
-  function bindActivation(button) {
-    let lastTouchActivation = -Infinity;
-
-    button.addEventListener("pointerup", (event) => {
-      if (event.pointerType !== "touch" || !event.isPrimary) return;
-      event.preventDefault();
-      lastTouchActivation = performance.now();
-      toggle();
-    }, { passive: false });
-
-    button.addEventListener("click", (event) => {
-      if (performance.now() - lastTouchActivation < 800) {
-        lastTouchActivation = -Infinity;
-        event.preventDefault();
-        return;
-      }
-      toggle();
-    });
-  }
+  // Native click covers touchscreen taps, mouse clicks, and keyboard activation.
+  menuToggle.addEventListener("click", toggle);
+  menuClose.addEventListener("click", toggle);
 
   function onKeyDown(e) {
     if (e.key === "Escape") {
@@ -4980,13 +4961,26 @@ function initMenu() {
 function initDetectScrollingDirection() {
   const thresholdTop = 50;
   const elements = document.querySelectorAll('[data-scrolling-started]');
+  let lastScroll = window.scrollY || 0;
+  let scrollDirection = "up";
 
   lenis.on('scroll', ({ scroll }) => {
     const started = scroll > thresholdTop;
 
-    elements.forEach(el =>
-      el.setAttribute('data-scrolling-started', started)
-    );
+    if (scroll <= thresholdTop) {
+      scrollDirection = "up";
+    } else if (scroll > lastScroll) {
+      scrollDirection = "down";
+    } else if (scroll < lastScroll) {
+      scrollDirection = "up";
+    }
+
+    elements.forEach(el => {
+      el.setAttribute('data-scrolling-started', String(started));
+      el.setAttribute('data-scroll-direction', started ? scrollDirection : "top");
+    });
+
+    lastScroll = scroll;
   });
 }
 
