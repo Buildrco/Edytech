@@ -2391,7 +2391,7 @@ html[lang="fr"] .lang-en-only {
 .menu .button-alt.is--menu-toggle { --button-alt-color: #111827; --button-alt-color-background: #DBEAFE; }
 .menu__header-title-logo { width: 3.25em; height: 3.25em; margin-top: 0; object-fit: contain; flex: 0 0 auto; }
 .page-wrapper:has(.header__nav a[href="/merch"][aria-current="page"]) .header__menu-toggle .button-alt,
-.page-wrapper:has(.header__nav a[href="/courses"][aria-current="page"]) .header__menu-toggle .button-alt { --button-alt-color: #fff; --button-alt-color-background: #3B82F6; }
+.page-wrapper:has(.header__nav a[href="/courses"][aria-current="page"]) .header__menu-toggle .button-alt { --button-alt-color: #111827; --button-alt-color-background: #fff; }
 
 
 /* Courses and Merch: use Edytech blue and light blue throughout. */
@@ -2404,3 +2404,9 @@ html[lang="fr"] .lang-en-only {
 .page-wrapper:has([data-hero-gift]) .hero-xs__action .button-alt { --button-alt-color: #111827; --button-alt-color-background: #DBEAFE; }
 .page-wrapper:has([data-hero-gift]) .subscription__box-bg,
 .page-wrapper:has([data-hero-gift]) .box__element { background-color: #DBEAFE !important; color: #DBEAFE; }
+
+
+/* Center only the copyright and studio-credit lines. */
+.footer__bottom-inner { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; text-align: center !important; gap: .75rem; }
+.footer__bottom-copyright, .footer__bottom-credit { display: flex !important; align-items: center !important; justify-content: center !important; width: 100%; text-align: center !important; }
+.footer__bottom-credit .footer__link { display: flex; justify-content: center; width: 100%; text-align: center; }
