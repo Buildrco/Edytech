@@ -2363,3 +2363,11 @@ html[lang="fr"] .lang-en-only {
 .page-wrapper:has(.policy-page) .header__menu-toggle .button-alt { --button-alt-color: #fff; --button-alt-color-background: transparent; }
 .page-wrapper:has(.policy-page) .header__menu-toggle .button-alt__icon,
 .page-wrapper:has(.policy-page) .header__menu-toggle .button-alt__icon path { color: #fff; stroke: #fff; }
+
+
+/* Edytech homepage visual updates */
+.hero.is--bg-yellow .hero__bg { color: #FFF2B2; }
+.hero.is--bg-yellow .hero__visual-img[src*="edytech-phone-repair-hero"] { object-fit: cover; object-position: 50% 48%; }
+.footer .footer__logo { display: flex; align-items: center; gap: .9rem; width: max-content; }
+.footer .footer__brand-name { color: #fff; font-size: clamp(2rem, 3.2vw, 3rem); font-weight: 800; letter-spacing: -.055em; line-height: 1; white-space: nowrap; }
+.footer .footer__logo-img { width: 4.625rem; height: 4.625rem; flex: 0 0 auto; object-fit: contain; }
