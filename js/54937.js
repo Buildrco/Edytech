@@ -2167,7 +2167,7 @@ barba.hooks.afterEnter(data => {
   // Settle
   if (hasLenis) {
     lenis.resize();
-    lenis.start();
+    if (typeof lenis !== "undefined" && lenis && typeof lenis.start === "function") lenis.start();
   }
 
   if (hasScrollTrigger) {
@@ -4915,19 +4915,42 @@ function initAnimate() {
 function initMenu() {
   const menuToggle = nextPage.querySelector("[data-menu-toggle]");
   const menu = nextPage.querySelector("[data-menu]");
+  if (!menuToggle || !menu) return;
+
   const menuClose = menu.querySelector("[data-menu-close]");
   const activeClass = "is--active";
   const hasMenuOpenClass = "has--menu-open";
 
-  if (!menu || !menuClose) return;
+  if (!menuClose || menuToggle.dataset.menuInit === "true") return;
+  menuToggle.dataset.menuInit = "true";
 
-  menuToggle.addEventListener("click", toggle);
-  menuClose.addEventListener("click", toggle);
+  bindActivation(menuToggle);
+  bindActivation(menuClose);
+
+  function bindActivation(button) {
+    let lastTouchActivation = -Infinity;
+
+    button.addEventListener("pointerup", (event) => {
+      if (event.pointerType !== "touch" || !event.isPrimary) return;
+      event.preventDefault();
+      lastTouchActivation = performance.now();
+      toggle();
+    }, { passive: false });
+
+    button.addEventListener("click", (event) => {
+      if (performance.now() - lastTouchActivation < 800) {
+        lastTouchActivation = -Infinity;
+        event.preventDefault();
+        return;
+      }
+      toggle();
+    });
+  }
 
   function onKeyDown(e) {
     if (e.key === "Escape") {
       e.preventDefault();
-      menuClose.click();
+      hide();
     }
   }
 
@@ -4940,10 +4963,10 @@ function initMenu() {
   }
 
   function show() {
-    lenis.stop();
     window.addEventListener("keydown", onKeyDown);
     menu.classList.add(activeClass);
     document.documentElement.classList.add(hasMenuOpenClass);
+    if (typeof lenis !== "undefined" && lenis && typeof lenis.stop === "function") lenis.stop();
   }
 
   function hide() {
