@@ -2391,4 +2391,16 @@ html[lang="fr"] .lang-en-only {
 .menu .button-alt.is--menu-toggle { --button-alt-color: #111827; --button-alt-color-background: #DBEAFE; }
 .menu__header-title-logo { width: 3.25em; height: 3.25em; margin-top: 0; object-fit: contain; flex: 0 0 auto; }
 .page-wrapper:has(.header__nav a[href="/merch"][aria-current="page"]) .header__menu-toggle .button-alt,
-.page-wrapper:has(.header__nav a[href="/courses"][aria-current="page"]) .header__menu-toggle .button-alt { --button-alt-color: #111827; --button-alt-color-background: #FACC15; }
+.page-wrapper:has(.header__nav a[href="/courses"][aria-current="page"]) .header__menu-toggle .button-alt { --button-alt-color: #fff; --button-alt-color-background: #3B82F6; }
+
+
+/* Courses and Merch: use Edytech blue and light blue throughout. */
+.page-wrapper:has([data-hero-gift]) { --yellow: #3B82F6; --pale-yellow: #DBEAFE; --soft-yellow: #EFF6FF; --bright-pink: #3B82F6; --pale-pink: #DBEAFE; --soft-pink: #DBEAFE; --magenta: #3B82F6; --pale-green: #DBEAFE; }
+.page-wrapper:has([data-hero-gift]) .hero-xs.is--bg-pale-pink,
+.page-wrapper:has([data-hero-gift]) .hero-xs.is--bg-pale-pink.is--bg-green { background-color: #3B82F6 !important; }
+.page-wrapper:has([data-hero-gift]) .hero-xs__bg { color: #DBEAFE !important; }
+.page-wrapper:has([data-hero-gift]) .hero-xs__bg-svg { color: #DBEAFE !important; }
+.page-wrapper:has([data-hero-gift]) .hero-xs__title { color: #fff !important; }
+.page-wrapper:has([data-hero-gift]) .hero-xs__action .button-alt { --button-alt-color: #111827; --button-alt-color-background: #DBEAFE; }
+.page-wrapper:has([data-hero-gift]) .subscription__box-bg,
+.page-wrapper:has([data-hero-gift]) .box__element { background-color: #DBEAFE !important; color: #DBEAFE; }
