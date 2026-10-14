@@ -2026,7 +2026,7 @@ html.has--menu-open .header {
   overflow: clip;
 }
 
-/* Color tokens — exact Figma values */
+/* Color tokens â exact Figma values */
 :root {
   --faq-color-cyan: #A4F6F8;
   --faq-color-cyan-soft: #DDFCFC;
@@ -2042,7 +2042,7 @@ html.has--menu-open .header {
   --faq-color-orange-soft: #FDDAA6;
 }
 
-/* Color resolver — sets --faq-bg / --faq-bg-soft from CMS color slug */
+/* Color resolver â sets --faq-bg / --faq-bg-soft from CMS color slug */
 [data-faq-color="cyan"] {
   --faq-bg: var(--faq-color-cyan);
   --faq-bg-soft: var(--faq-color-cyan-soft);
@@ -2111,7 +2111,7 @@ html.has--menu-open .header {
   background-color: var(--faq-bg);
 }
 
-/* Hover wiggle — BG squeezes + goes full color */
+/* Hover wiggle â BG squeezes + goes full color */
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
   .faq__category__tag:is(:hover, :focus-visible) .faq__category__tag__bg {
     background-color: var(--faq-bg);
@@ -2160,7 +2160,7 @@ html.has--menu-open .header {
   scroll-margin-top: calc(var(--header-height, 6em) + 1em);
 }
 
-/* Sticky sidebar — only on desktop */
+/* Sticky sidebar â only on desktop */
 @media screen and (min-width: 992px) {
   .faq__nav {
     position: sticky;
@@ -2265,7 +2265,7 @@ html[lang="fr"] .lang-en-only {
   grid-column: 1 / -1;
 }
 
-/* Item 2 + 3: nebeneinander in der Mitte (automatisch, da sie in Reihe 2 fließen) */
+/* Item 2 + 3: nebeneinander in der Mitte (automatisch, da sie in Reihe 2 flieÃen) */
 
 /* Item 4: mittig unten, spannt beide Spalten */
 .book__glance-list>*:nth-child(4) {
@@ -2343,3 +2343,31 @@ html[lang="fr"] .lang-en-only {
 .transition__shape {
   color: #3B82F6;
 }
+
+
+/* Edytech footer repair: align both layers with the current blue brand palette. */
+.footer,
+.footer__top { background-color: #3B82F6; }
+.footer .footer__top-form .form__submit-group .button-alt { --button-alt-color: #111827; --button-alt-color-background: #fff; }
+.footer .button-social { --button-social-color: #111827; --button-social-color-background: #fff; }
+.footer .footer__top-form .form__input { color: #111827; background-color: #fff; }
+
+
+/* Edytech identity assets and accessible social controls */
+.header__title-link { display: flex; align-items: center; gap: .6rem; text-decoration: none; white-space: nowrap; }
+.header__brand-name { color: #111827; font-size: clamp(1.35rem, 1.8vw, 1.75rem); font-weight: 800; letter-spacing: -.04em; }
+.header__title-logo { width: 4.25rem; height: 4.25rem; object-fit: contain; }
+.transition__logo-svg image { width: 100%; height: 100%; transform: scale(1.5); transform-box: fill-box; transform-origin: center; }
+.button-social[data-wf--button-social-youtube--variant="big"] { width: 3.625em; height: 3.625em; }
+.button-social[data-wf--button-social-youtube--variant="big"] .button-social__icon { width: 1.875em; height: 1.875em; }
+.page-wrapper:has(.policy-page) .header__menu-toggle .button-alt { --button-alt-color: #fff; --button-alt-color-background: transparent; }
+.page-wrapper:has(.policy-page) .header__menu-toggle .button-alt__icon,
+.page-wrapper:has(.policy-page) .header__menu-toggle .button-alt__icon path { color: #fff; stroke: #fff; }
+
+
+/* Edytech homepage visual updates */
+.hero.is--bg-yellow .hero__bg { color: #FFF2B2; }
+.hero.is--bg-yellow .hero__visual-img[src*="edytech-phone-repair-hero"] { object-fit: cover; object-position: 50% 48%; }
+.footer .footer__logo { display: flex; align-items: center; gap: .9rem; width: max-content; }
+.footer .footer__brand-name { color: #fff; font-size: clamp(2rem, 3.2vw, 3rem); font-weight: 800; letter-spacing: -.055em; line-height: 1; white-space: nowrap; }
+.footer .footer__logo-img { width: 4.625rem; height: 4.625rem; flex: 0 0 auto; object-fit: contain; }
