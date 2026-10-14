@@ -2310,3 +2310,23 @@ html[lang="fr"] .lang-en-only {
   display: flex;
   justify-content: center;
 }
+
+
+/* Edytech repair blue palette */
+:root {
+  --pale-yellow: var(--pale-blue);
+  --yellow: var(--cyan);
+  --soft-yellow: var(--soft-blue);
+  --bright-pink: var(--cyan);
+  --pale-pink: var(--pale-blue);
+  --soft-pink: var(--soft-blue);
+  --magenta: var(--cyan);
+  --faq-color-pink: var(--pale-blue);
+  --faq-color-pink-soft: var(--soft-blue);
+  --faq-color-yellow: var(--cyan);
+  --faq-color-yellow-soft: var(--soft-blue);
+}
+
+.transition__shape {
+  color: var(--cyan);
+}
