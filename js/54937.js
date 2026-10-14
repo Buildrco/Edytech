@@ -518,6 +518,8 @@ class FilterSlider extends Smooothy {
 
 function initOnceFunctions() {
   initLenis();
+  // Bind on the initial Barba "once" pass, before any later afterEnter hooks.
+  initMenu();
   if (onceFunctionsInitialized) return;
   onceFunctionsInitialized = true;
 
