@@ -2312,21 +2312,34 @@ html[lang="fr"] .lang-en-only {
 }
 
 
-/* Edytech repair blue palette */
+/* Edytech repair palette: true blue homepage, golden menu */
 :root {
-  --pale-yellow: var(--pale-blue);
-  --yellow: var(--cyan);
-  --soft-yellow: var(--soft-blue);
-  --bright-pink: var(--cyan);
-  --pale-pink: var(--pale-blue);
-  --soft-pink: var(--soft-blue);
-  --magenta: var(--cyan);
-  --faq-color-pink: var(--pale-blue);
-  --faq-color-pink-soft: var(--soft-blue);
-  --faq-color-yellow: var(--cyan);
-  --faq-color-yellow-soft: var(--soft-blue);
+  --yellow: #3B82F6;
+  --pale-yellow: #DBEAFE;
+  --soft-yellow: #EFF6FF;
+  --bright-pink: #FACC15;
+  --pale-pink: #FEF3C7;
+  --soft-pink: #FEF9C3;
+  --magenta: #FACC15;
+  --faq-color-pink: #FACC15;
+  --faq-color-pink-soft: #FEF3C7;
+  --faq-color-yellow: #3B82F6;
+  --faq-color-yellow-soft: #DBEAFE;
+}
+
+.page-wrapper:has(.hero.is--bg-yellow) .header {
+  --button-color: var(--black);
+  --button-color-background: #fff;
+  --button-alt-color: var(--black);
+  --button-alt-color-background: #fff;
+  --button-social-color: #DBEAFE;
+}
+
+.hero.is--bg-yellow .button-alt {
+  --button-alt-color: var(--black);
+  --button-alt-color-background: #fff;
 }
 
 .transition__shape {
-  color: var(--cyan);
+  color: #3B82F6;
 }
