@@ -2382,3 +2382,13 @@ html[lang="fr"] .lang-en-only {
 .footer .footer__logo { display: flex; align-items: center; gap: .9rem; width: max-content; }
 .footer .footer__brand-name { color: #fff; font-size: clamp(2rem, 3.2vw, 3rem); font-weight: 800; letter-spacing: -.055em; line-height: 1; white-space: nowrap; }
 .footer .footer__logo-img { width: 4.625rem; height: 4.625rem; flex: 0 0 auto; object-fit: contain; }
+
+
+/* Edytech menu palette, logo sizing, and subpage header button */
+.menu .menu__bg { background-color: #3B82F6; }
+.menu .menu__bg-svg { color: #DBEAFE; opacity: 1; }
+.menu .button { --button-color: #111827; --button-color-background: #DBEAFE; }
+.menu .button-alt.is--menu-toggle { --button-alt-color: #111827; --button-alt-color-background: #DBEAFE; }
+.menu__header-title-logo { width: 3.25em; height: 3.25em; margin-top: 0; object-fit: contain; flex: 0 0 auto; }
+.page-wrapper:has(.header__nav a[href="/merch"][aria-current="page"]) .header__menu-toggle .button-alt,
+.page-wrapper:has(.header__nav a[href="/courses"][aria-current="page"]) .header__menu-toggle .button-alt { --button-alt-color: #111827; --button-alt-color-background: #FACC15; }

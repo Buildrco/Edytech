@@ -4915,49 +4915,44 @@ function initAnimate() {
 }
 
 function initMenu() {
-  const menuToggle = nextPage.querySelector("[data-menu-toggle]");
-  const menu = nextPage.querySelector("[data-menu]");
-  if (!menuToggle || !menu) return;
+  const root = document.documentElement;
+  if (root.dataset.menuDelegateInit === "true") return;
+  root.dataset.menuDelegateInit = "true";
 
-  const menuClose = menu.querySelector("[data-menu-close]");
-  const activeClass = "is--active";
-  const hasMenuOpenClass = "has--menu-open";
-
-  if (!menuClose || menuToggle.dataset.menuInit === "true") return;
-  menuToggle.dataset.menuInit = "true";
-
-  // Native click covers touchscreen taps, mouse clicks, and keyboard activation.
-  menuToggle.addEventListener("click", toggle);
-  menuClose.addEventListener("click", toggle);
-
-  function onKeyDown(e) {
-    if (e.key === "Escape") {
-      e.preventDefault();
-      hide();
+  const setMenuState = (menu, open) => {
+    if (open) {
+      menu.classList.add("is--active");
+      root.classList.add("has--menu-open");
+      if (typeof lenis !== "undefined" && lenis && typeof lenis.stop === "function") lenis.stop();
+      return;
     }
-  }
 
-  function toggle() {
-    if (menu.classList.contains(activeClass)) {
-      hide();
-    } else {
-      show();
-    }
-  }
+    menu.classList.remove("is--active");
+    root.classList.remove("has--menu-open");
+    if (typeof lenis !== "undefined" && lenis && typeof lenis.start === "function") lenis.start();
+  };
 
-  function show() {
-    window.addEventListener("keydown", onKeyDown);
-    menu.classList.add(activeClass);
-    document.documentElement.classList.add(hasMenuOpenClass);
-    if (typeof lenis !== "undefined" && lenis && typeof lenis.stop === "function") lenis.stop();
-  }
+  // Delegate clicks so the current menu keeps working when Barba swaps page content.
+  document.addEventListener("click", (event) => {
+    const target = event.target instanceof Element ? event.target : event.target?.parentElement;
+    const toggle = target?.closest("[data-menu-toggle]");
+    const close = target?.closest("[data-menu-close]");
+    if (!toggle && !close) return;
 
-  function hide() {
-    window.removeEventListener("keydown", onKeyDown);
-    menu.classList.remove(activeClass);
-    document.documentElement.classList.remove(hasMenuOpenClass);
-    lenis.start();
-  }
+    const menu = toggle
+      ? toggle.closest(".page-wrapper")?.querySelector("[data-menu]") || document.querySelector("[data-menu]")
+      : close.closest("[data-menu]");
+    if (!menu) return;
+
+    event.preventDefault();
+    setMenuState(menu, !menu.classList.contains("is--active"));
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    const menu = document.querySelector("[data-menu].is--active");
+    if (menu) setMenuState(menu, false);
+  });
 }
 
 function initDetectScrollingDirection() {
