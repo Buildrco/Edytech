@@ -2410,3 +2410,10 @@ html[lang="fr"] .lang-en-only {
 .footer__bottom-inner { display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; text-align: center !important; gap: .75rem; }
 .footer__bottom-copyright, .footer__bottom-credit { display: flex !important; align-items: center !important; justify-content: center !important; width: 100%; text-align: center !important; }
 .footer__bottom-credit .footer__link { display: flex; justify-content: center; width: 100%; text-align: center; }
+
+
+/* Menu identity and social icon colors */
+.menu__header-title-link{display:flex;align-items:center;gap:.6rem;text-decoration:none;white-space:nowrap;}
+.menu__header-title-logo{width:4.25rem!important;height:4.25rem!important;flex:0 0 auto;object-fit:contain;}
+.menu__header-brand-name{color:#111827;font-size:clamp(1.35rem,1.8vw,1.75rem);font-weight:800;letter-spacing:-.04em;}
+.button-social[data-wf--button-social-tiktok--variant],.button-social[data-wf--button-social-youtube--variant]{--button-social-color:#fff!important;--button-social-color-background:#000!important;}
